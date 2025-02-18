@@ -1,9 +1,30 @@
 import React from 'react';
 import { Calculator, Phone, Mail, Building2, MapPin, Scale, FileCheck, GraduationCap, BadgeCheck } from 'lucide-react';
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Jelena Olarević - Procenitelj Nekretnina",
+  "image": "https://www.procenanekretnina.rs/og-image.jpg",
+  "description": "Licencirani procenitelj nekretnina u Kragujevcu. Stručna procena stanova, kuća, poslovnih prostora i zemljišta.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Kragujevac",
+    "addressCountry": "RS"
+  },
+  "telephone": "+381658070708",
+  "email": "elena.jelena@hotmail.com",
+  "priceRange": "$$",
+  "license": "338",
+  "url": "https://www.procenanekretnina.rs/"
+};
+
 function App() {
   return (
     <div className="min-h-screen bg-white">
+      <script type="application/ld+json">
+        {JSON.stringify(structuredData)}
+      </script>
       {/* Navigation */}
       <nav className="bg-white shadow-md fixed w-full z-10">
         <div className="container mx-auto px-6 py-4">
