@@ -1,30 +1,11 @@
 import React from 'react';
 import { Calculator, Phone, Mail, Building2, MapPin, Scale, FileCheck, GraduationCap, BadgeCheck } from 'lucide-react';
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Jelena Olarević - Procenitelj Nekretnina",
-  "image": "https://www.procenanekretnina.rs/og-image.jpg",
-  "description": "Licencirani procenitelj nekretnina u Kragujevcu. Stručna procena stanova, kuća, poslovnih prostora i zemljišta.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Kragujevac",
-    "addressCountry": "RS"
-  },
-  "telephone": "+381658070708",
-  "email": "elena.jelena@hotmail.com",
-  "priceRange": "$$",
-  "license": "338",
-  "url": "https://www.procenanekretnina.rs/"
-};
+const cities = ["Kragujevac", "Aranđelovac", "Topola", "Rača", "Jagodina", "Paraćin", "Ćuprija", "Velika Plana", "Kraljevo", "Čačak", "Vrnjačka Banja", "Trstenik", "Novi Pazar", "Raška"];
 
 function App() {
   return (
     <div className="min-h-screen bg-white">
-      <script type="application/ld+json">
-        {JSON.stringify(structuredData)}
-      </script>
       {/* Navigation */}
       <nav className="bg-white shadow-md fixed w-full z-10">
         <div className="container mx-auto px-6 py-4">
@@ -37,6 +18,7 @@ function App() {
               <a href="#home" className="text-gray-700 hover:text-blue-600">Početna</a>
               <a href="#services" className="text-gray-700 hover:text-blue-600">Usluge</a>
               <a href="#about" className="text-gray-700 hover:text-blue-600">O Meni</a>
+              <a href="#locations" className="text-gray-700 hover:text-blue-600">Lokacije</a>
               <a href="#contact" className="text-gray-700 hover:text-blue-600">Kontakt</a>
             </div>
           </div>
@@ -49,7 +31,7 @@ function App() {
           <div className="absolute inset-0">
             <img
               src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=2000"
-              alt="Professional Office"
+              alt="Kancelarija za procenu nekretnina u Kragujevcu"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -132,7 +114,24 @@ function App() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-20">
+      {/* Locations */}
+      <section id="locations" className="py-20">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-4">Gde Procenjujem</h2>
+          <p className="text-gray-600 text-center mb-10">
+            Procene vrednosti nepokretnosti vršim na teritoriji sledećih gradova i opština:
+          </p>
+          <ul className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+            {cities.map((city) => (
+              <li key={city} className="px-5 py-2 rounded-full border border-blue-200 text-gray-700 bg-white">
+                {city}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section id="contact" className="py-20 bg-gray-50">
         <div className="container mx-auto px-23">
           <h2 className="text-3xl font-bold text-center mb-12">Kontaktirajte Me</h2>
           <div className="max-w-4xl mx-auto">
@@ -143,11 +142,11 @@ function App() {
                   <div className="space-y-4">
                     <div className="flex items-center">
                       <Phone className="h-5 w-5 text-blue-600 mr-3" />
-                      <span>+381 65 8070 708</span>
+                      <a href="tel:+381658070708" className="hover:text-blue-600 hover:underline">+381 65 8070 708</a>
                     </div>
                     <div className="flex items-center">
                       <Mail className="h-5 w-5 text-blue-600 mr-3" />
-                      <span>elena.jelena@hotmail.com</span>
+                      <a href="mailto:elena.jelena@hotmail.com" className="hover:text-blue-600 hover:underline">elena.jelena@hotmail.com</a>
                     </div>
                     <div className="flex items-center">
                       <GraduationCap className="h-5 w-5 text-blue-600 mr-3" />
